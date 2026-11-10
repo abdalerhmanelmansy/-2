@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f8f6" />
+    <title>نَبْرة — مساحة مقالاتك</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="istyle.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="القائمة الرئيسية">
+        <a class="brand" href="#" aria-label="نبرة - الرئيسية">
+          <span class="brand-mark">ن</span>
+          <span class="brand-name">نَبْرة<span class="brand-dot">.</span></span>
+        </a>
+
+        <div class="workspace-label">مساحة العمل</div>
+        <nav class="main-nav">
+          <button class="nav-link active" data-view="all">
+            <span class="nav-icon" data-icon="grid"></span><span>المقالات</span><span class="nav-count" id="nav-all-count">0</span>
+          </button>
+          <button class="nav-link" data-view="published">
+            <span class="nav-icon" data-icon="send"></span><span>منشورة</span>
+          </button>
+          <button class="nav-link" data-view="draft">
+            <span class="nav-icon" data-icon="file"></span><span>مسودات</span><span class="nav-count muted" id="nav-draft-count">0</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-divider"></div>
+        <div class="workspace-label">إلهام سريع</div>
+        <div class="sidebar-note">
+          <span class="note-sparkle">✳</span>
+          <p>كل فكرة تستحق أن تُروى. ابدأ بمسودة صغيرة اليوم.</p>
+          <button id="sidebar-create" class="note-link">اكتب مقالًا <span>←</span></button>
+        </div>
+
+        <div class="sidebar-bottom">
+          <div class="profile-avatar">ع</div>
+          <div class="profile-info"><strong> عبد الرحمن ابراهيم</strong><span>محرر المحتوى</span></div>
+          <button class="icon-button profile-menu" aria-label="خيارات الحساب" title="خيارات الحساب"><span data-icon="more"></span></button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="breadcrumb"><span>مساحة العمل</span><span class="breadcrumb-slash">/</span><strong>المقالات</strong></div>
+          <div class="topbar-actions">
+            <span class="today-label" id="today-label"></span>
+            <button class="icon-button notification-button" aria-label="الإشعارات"><span data-icon="bell"></span><i></i></button>
+            <div class="top-avatar">ع</div>
+          </div>
+        </header>
+
+        <section class="page-content">
+          <div class="welcome-row">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-line"></span>مساحتك الإبداعية</p>
+              <h1 id="page-title">مكتبة مقالاتك<span class="title-period">.</span></h1>
+              <p class="page-subtitle">كل ما كتبته، وما ستكتبه بعد ذلك — في مكان واحد.</p>
+            </div>
+            <button class="primary-button" id="create-article">
+              <span class="button-plus">＋</span><span>مقال جديد</span>
+            </button>
+          </div>
+
+          <section class="stats-grid" aria-label="إحصائيات المقالات">
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-icon mint" data-icon="file"></span><span class="stat-caption">إجمالي المقالات</span><span class="stat-menu">•••</span></div>
+              <div class="stat-value" id="stat-total">0</div>
+              <div class="stat-foot"><span class="stat-hint">في مكتبتك حتى الآن</span></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-icon lilac" data-icon="send"></span><span class="stat-caption">مقالات منشورة</span><span class="stat-menu">•••</span></div>
+              <div class="stat-value" id="stat-published">0</div>
+              <div class="stat-foot"><span class="trend-up">↗</span><span class="stat-hint">جاهزة للقراءة</span></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-icon peach" data-icon="eye"></span><span class="stat-caption">إجمالي القراءات</span><span class="stat-menu">•••</span></div>
+              <div class="stat-value" id="stat-views">0</div>
+              <div class="stat-foot"><span class="trend-up">↗</span><span class="stat-hint">من مقالاتك المنشورة</span></div>
+            </article>
+            <article class="stat-card featured-stat">
+              <div class="feature-orbit orbit-one"></div><div class="feature-orbit orbit-two"></div>
+              <div class="feature-stat-content"><span class="featured-kicker">مساحة للنمو</span><strong>فكرة واحدة<br />قد تغيّر كل شيء.</strong><button id="featured-create">ابدأ الكتابة <span>←</span></button></div>
+              <span class="feature-star">✳</span>
+            </article>
+          </section>
+
+          <section class="articles-section">
+            <div class="section-heading">
+              <div>
+                <h2>كل المقالات <span class="heading-count" id="heading-count">0</span></h2>
+                <p>تابع كتاباتك وأدر محتواك بسهولة.</p>
+              </div>
+              <div class="list-tools">
+                <label class="search-box">
+                  <span data-icon="search"></span>
+                  <input id="search-input" type="search" placeholder="ابحث عن مقال..." autocomplete="off" />
+                  <kbd>⌘ K</kbd>
+                </label>
+                <label class="select-wrap">
+                  <span class="sr-only">تصفية حسب التصنيف</span>
+                  <select id="category-filter"><option value="all">كل التصنيفات</option></select>
+                  <span class="select-chevron">⌄</span>
+                </label>
+                <button class="filter-button" id="sort-button" aria-label="ترتيب المقالات" title="ترتيب من الأحدث"><span data-icon="sort"></span></button>
+              </div>
+            </div>
+
+            <div class="content-tabs" role="tablist" aria-label="تصفية المقالات">
+              <button class="tab active" data-view="all" role="tab" aria-selected="true">الكل <span id="tab-all-count">0</span></button>
+              <button class="tab" data-view="published" role="tab" aria-selected="false">منشورة <span id="tab-published-count">0</span></button>
+              <button class="tab" data-view="draft" role="tab" aria-selected="false">مسودات <span id="tab-draft-count">0</span></button>
+            </div>
+
+            <div class="table-wrap">
+              <table class="articles-table">
+                <thead><tr><th class="article-heading">المقال</th><th>التصنيف</th><th>الحالة</th><th>تاريخ التعديل</th><th>القراءات</th><th><span class="sr-only">إجراءات</span></th></tr></thead>
+                <tbody id="articles-body"></tbody>
+              </table>
+              <div class="empty-state" id="empty-state" hidden>
+                <div class="empty-illustration"><span data-icon="file"></span><i>✳</i></div>
+                <h3 id="empty-title">لا توجد مقالات بعد</h3>
+                <p id="empty-description">مساحتك جاهزة لأول فكرة. ابدأ بكتابة مقال جديد.</p>
+                <button class="primary-button" id="empty-create"><span class="button-plus">＋</span>اكتب أول مقال</button>
+              </div>
+            </div>
+            <div class="table-footer"><span id="results-label"></span><span class="footer-tip"><span>✦</span> مساحة صغيرة لأفكار كبيرة</span></div>
+          </section>
+          <footer class="page-footer">صُنع للأفكار التي تستحق أن تُروى <span>♥</span></footer>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="editor-modal" hidden>
+      <section class="editor-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-header">
+          <div><p class="eyebrow"><span class="eyebrow-line"></span>مساحة الكتابة</p><h2 id="modal-title">مقال جديد</h2></div>
+          <button class="icon-button close-modal" data-close-modal aria-label="إغلاق"><span data-icon="close"></span></button>
+        </div>
+        <form id="article-form">
+          <input id="article-id" type="hidden" />
+          <label class="field-label" for="article-title">عنوان المقال</label>
+          <input class="text-field title-field" id="article-title" maxlength="100" placeholder="اكتب عنوانًا يلفت الانتباه..." required />
+          <div class="field-row">
+            <div class="field-group"><label class="field-label" for="article-category">التصنيف</label><select class="text-field" id="article-category"><option>أفكار وإلهام</option><option>ثقافة</option><option>تقنية</option><option>أسلوب حياة</option><option>أعمال</option><option>بدون تصنيف</option></select></div>
+            <div class="field-group"><label class="field-label" for="article-cover">رابط صورة الغلاف <span class="optional">(اختياري)</span></label><input class="text-field" id="article-cover" type="url" placeholder="https://example.com/image.jpg" /></div>
+          </div>
+          <label class="field-label" for="article-excerpt">نبذة قصيرة <span class="optional">(اختياري)</span></label>
+          <textarea class="text-field excerpt-field" id="article-excerpt" maxlength="180" rows="2" placeholder="ماذا سيجد القارئ في هذا المقال؟"></textarea>
+          <label class="field-label" for="article-content">محتوى المقال</label>
+          <textarea class="text-field content-field" id="article-content" rows="8" placeholder="ابدأ بكتابة فكرتك هنا..."></textarea>
+          <div class="form-message" id="form-message" role="alert"></div>
+          <div class="modal-actions">
+            <button type="button" class="danger-button" id="editor-delete" hidden>حذف المقال</button>
+            <button type="button" class="secondary-button" id="save-draft">حفظ كمسودة</button>
+            <button type="submit" class="primary-button" id="publish-article"><span data-icon="send"></span>نشر المقال</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <div class="modal-backdrop preview-backdrop" id="preview-modal" hidden>
+      <article class="preview-modal" role="dialog" aria-modal="true" aria-labelledby="preview-title">
+        <button class="icon-button preview-close" data-close-modal aria-label="إغلاق"><span data-icon="close"></span></button>
+        <div class="preview-cover" id="preview-cover"></div>
+        <div class="preview-content"><span class="category-pill" id="preview-category"></span><h2 id="preview-title"></h2><p class="preview-meta" id="preview-meta"></p><p class="preview-excerpt" id="preview-excerpt"></p><div class="preview-body" id="preview-body"></div></div>
+      </article>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
